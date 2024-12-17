@@ -35,7 +35,6 @@ html, body {
 /* Discord Logo */
 .discord-logo {
     width: 50px; /* Default size */
-    height: 50px;
     transition: transform 0.3s ease;
 }
 
