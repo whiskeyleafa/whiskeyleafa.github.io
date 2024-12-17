@@ -47,6 +47,5 @@ html, body {
 @media (max-width: 768px) {
     .discord-logo {
         width: 40px;
-        height: 40px;
     }
 }
