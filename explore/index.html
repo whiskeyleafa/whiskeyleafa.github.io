@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animal Live Cams</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 90%;
+      max-width: 500px;
+      margin-top: 20px;
+    }
+
+    .cam-button {
+      padding: 20px;
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      font-size: 1.2rem;
+      text-decoration: none;
+      color: #eee;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .cam-button:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐾 Live Animal Cams 🐾</h1>
+  </header>
+
+  <div class="container">
+    <a class="cam-button" href="/wolves" target="_blank">🐺 Wolf Cam</a>
+    <a class="cam-button" href="/wolves2" target="_blank">🐺 Wolf Cam 2</a>
+    <a class="cam-button" href="/eagles" target="_blank">🦅 Eagle Cam</a>
+    <a class="cam-button" href="/backyard" target="_blank">🌿 Backyard Cam</a>
+    <a class="cam-button" href="/bears" target="_blank">🐻 Bear Cam</a>
+  </div>
+</body>
+</html>
