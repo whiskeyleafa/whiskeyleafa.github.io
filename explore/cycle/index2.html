@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iframe Navigator</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family: sans-serif;
+    }
+
+    #viewer {
+        flex: 1;
+        width: 100%;
+        border: none;
+    }
+
+.controls {
+    position: absolute;
+    bottom: 20px;              /* float above bottom edge */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 0;                /* no bar height */
+    background: transparent;   /* fully transparent */
+    pointer-events: none;      /* allow iframe clicks except on buttons */
+}
+
+.controls button {
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    padding: 14px;
+    border-radius: 10px;
+    opacity: 0.08;            /* barely visible */
+    pointer-events: auto;     /* re-enable for buttons */
+    transition: opacity 0.2s;
+}
+
+.controls button:active {
+    opacity: 0.15;
+}
+  
+</style>
+</head>
+<body>
+
+<iframe id="viewer"></iframe>
+
+<div class="controls">
+    <button id="prevBtn">⬅️</button>
+    <button id="nextBtn">➡️</button>
+</div>
+
+<script>
+const pages = [
+    "https://spindleclutch.com/explore/wolves",
+    "https://spindleclutch.com/explore/wolves2",
+    "https://spindleclutch.com/explore/eagles",
+    "https://spindleclutch.com/explore/bears",
+    "https://spindleclutch.com/explore/backyard"
+];
+
+let current = 0;
+const viewer = document.getElementById("viewer");
+viewer.src = pages[current];
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+    current = (current + 1) % pages.length;
+    viewer.src = pages[current];
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+    current = (current - 1 + pages.length) % pages.length;
+    viewer.src = pages[current];
+});
+</script>
+
+</body>
+</html>
