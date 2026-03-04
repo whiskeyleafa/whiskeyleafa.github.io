@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Navigator</title>
+    <style>
+        /* (Keeping your CSS exactly as provided) */
+        body { margin: 0; background: #000; color: white; height: 100vh; display: flex; flex-direction: column; font-family: sans-serif; }
+        #viewer { flex: 1; width: 100%; border: none; }
+        .controls { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; gap: 40px; pointer-events: none; }
+        .controls button { font-size: 28px; background: none; border: none; color: white; cursor: pointer; padding: 14px; opacity: 0.5; pointer-events: auto; transition: opacity 0.2s; }
+        .controls button:active { opacity: 0.15; }
+    </style>
+</head>
+<body>
+    <iframe id="viewer"></iframe>
+    <div class="controls">
+        <button id="prevBtn">⬅️</button>
+        <button id="nextBtn">➡️</button>
+    </div>
+
+    <script>
+        const pages = [
+            "../wolves", "../wolves2", "../puppies", 
+            "../eagles", "../bears", "../backyard"
+        ];
+
+        // NEW: Check the URL for a "stream" number, otherwise start at 0
+        const urlParams = new URLSearchParams(window.location.search);
+        let current = parseInt(urlParams.get('stream')) || 0;
+
+        const viewer = document.getElementById("viewer");
+        
+        // Load the specific page
+        viewer.src = pages[current];
+
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            current = (current + 1) % pages.length;
+            viewer.src = pages[current];
+        });
+
+        document.getElementById("prevBtn").addEventListener("click", () => {
+            current = (current - 1 + pages.length) % pages.length;
+            viewer.src = pages[current];
+        });
+    </script>
+</body>
+</html>
