@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 Proportional Video Wall</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden; 
+            background-color: #000; /* Black background for empty slots */
+        }
+
+        /* The Grid: 3 columns, 3 rows */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            grid-template-rows: repeat(3, 1fr);    
+            width: 100vw;
+            height: 100vh;
+            gap: 2px; /* Ultra-thin border between streams */
+        }
+
+        .video-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: #111; /* Slightly lighter black for empty slots */
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-grid">
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/wolves"></iframe></div>
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/wolves2"></iframe></div>
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/backyard"></iframe></div>
+        
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/eagles"></iframe></div>
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/puppies"></iframe></div>
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/bears"></iframe></div>
+
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/007"></iframe></div>
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/008"></iframe></div>
+        <div class="video-wrapper"><iframe src="https://ierc.co/explore/009"></iframe></div>
+    </div>
+
+</body>
+</html>
