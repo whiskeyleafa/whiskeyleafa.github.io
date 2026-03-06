@@ -89,6 +89,29 @@ document.getElementById("prevBtn").addEventListener("click", () => {
     current = (current - 1 + pages.length) % pages.length;
     viewer.src = pages[current];
 });
+
+// Request a wake lock to prevent dimming
+let wakeLock = null;
+
+async function requestWakeLock() {
+  try {
+    wakeLock = await navigator.wakeLock.request('screen');
+    console.log('Wake Lock is active - Screen will not dim');
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+}
+
+// Request the lock when the page loads
+requestWakeLock();
+
+// Re-request the lock if the user tabs away and comes back
+document.addEventListener('visibilitychange', async () => {
+  if (wakeLock !== null && document.visibilityState === 'visible') {
+    requestWakeLock();
+  }
+});
+    
 </script>
 
 </body>
