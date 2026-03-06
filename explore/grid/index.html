@@ -3,53 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3x3 Proportional Video Wall</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <title>Explore.org Grid</title>
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-body, html {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
-            /* Flexbox here pushes the grid to the top */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; 
-            overflow: hidden;
-        }
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        /* This pushes the grid to the top, leaving empty space at the bottom */
+        justify-content: flex-start; 
+        overflow: hidden;
+    }
 
-        /* The Grid: 3 columns, 3 rows */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            grid-template-rows: repeat(3, auto);    
-            width: 100vw;
-            height: 100vh;
-            gap: 2px; /* Ultra-thin border between streams */
-        }
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+        /* max-content ensures rows don't stretch to fill the screen */
+        grid-template-rows: repeat(3, max-content); 
+        width: 100vw;
+        gap: 2px; /* Your constant 2px border */
+    }
 
-        .video-wrapper {
-           position: relative;
-            width: 100%;
-            /* This ensures the height is always perfectly proportional to the width */
-            aspect-ratio: 16 / 9;
-            background: #111;
-            overflow: hidden;
-        }
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        /* Forces the height based on width regardless of screen height */
+        aspect-ratio: 16 / 9;
+        background: #111;
+        overflow: hidden;
+    }
 
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>
 </head>
 <body>
 
