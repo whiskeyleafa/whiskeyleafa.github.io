@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<script>
+  const titleText = "> ierc.co";
+  let showCursor = true;
+
+  setInterval(() => {
+    document.title = showCursor ? titleText + " " : titleText + "_";
+    showCursor = !showCursor;
+  }, 600); // Blinks every 600ms
+</script>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spindleclutch</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>> ierc.co</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container">
-        <!-- Centered GIF -->
-        <img src="SpidleclutchFlame.gif" alt="Centered GIF" class="center-gif">
+        <header class="profile">
+            <img src="pfp.jpg" alt="User Profile" class="avatar">
+            <h1>Eric</h1>
+            <p>Designer // Videographer // Voiceover</p>
+        </header>
+
+        <main class="links-container">
+            <section class="link-group">
+                <h2 class="section-title">Projects</h2>
+                <a href="/exlore" class="link-card" target="_blank" rel="noopener noreferrer">Nature Live Cams</a>
+                <a href="/metal" class="link-card" target="_blank" rel="noopener noreferrer">Metal Bands</a>
+            </section>
+
+            <section class="link-group">
+                <h2 class="section-title" target="_blank" rel="noopener noreferrer">Pay Me</h2>
+                <a href="https://cash.app/$ierc" class="link-card" target="_blank" rel="noopener noreferrer">Cash App: $ierc</a>
+                <a href="https://www.venmo.com/u/ierc_" class="link-card" target="_blank" rel="noopener noreferrer">Venmo: ierc_</a>
+                <a href="https://paypal.me/ierc" class="link-card" target="_blank" rel="noopener noreferrer">PayPal: ierc</a>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Page shamefully vibe-coded using Google Gemini</p>
+        </footer>
     </div>
+
 </body>
 </html>

@@ -1,0 +1,144 @@
+/* --- Vaporwave Noir Variables --- */
+:root {
+    --bg-black: #050505;
+    --neon-purple: #bc13fe;
+    --neon-pink: #ff00ff;
+    --neon-cyan: #00f3ff;
+    --text-main: #ffffff;
+    --text-dim: #b5b5b5;
+    --glass-bg: rgba(15, 15, 20, 0.7);
+    --glass-border: rgba(188, 19, 254, 0.3);
+}
+
+/* --- The Moving Grid & Background --- */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background-color: var(--bg-black);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    /* Subtle deep purple glow at the top */
+    background: radial-gradient(circle at center top, #1a0033 0%, #050505 70%);
+}
+
+/* The Futuristic Grid */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background-image: 
+        linear-gradient(var(--glass-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: center center;
+    transform: perspective(500px) rotateX(60deg);
+    transform-origin: center bottom;
+    animation: gridScroll 20s linear infinite;
+    z-index: -1;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+}
+
+@keyframes gridScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 50px; }
+}
+
+/* --- Container --- */
+.container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* --- Profile Section --- */
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 15px var(--neon-purple), inset 0 0 10px var(--neon-cyan);
+    object-fit: cover;
+}
+
+.profile h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px var(--neon-pink), -2px -1px var(--neon-cyan);
+}
+
+.profile p {
+    color: var(--neon-cyan);
+    font-family: monospace;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* --- Neon Glass Buttons --- */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.link-card {
+    background: var(--glass-bg);
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 18px;
+    border: 1px solid var(--glass-border);
+    border-radius: 4px; /* Sharper edges for that retro-tech look */
+    backdrop-filter: blur(8px);
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 4px 4px 0px var(--neon-purple);
+}
+
+.link-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px var(--neon-cyan);
+    border-color: var(--neon-pink);
+    color: var(--neon-cyan);
+}
+
+/* --- Footer --- */
+.footer {
+    margin-top: 60px;
+    font-family: monospace;
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    opacity: 0.6;
+}
+
+.link-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--neon-pink);
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
