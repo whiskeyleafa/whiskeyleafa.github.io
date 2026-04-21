@@ -1,119 +1,109 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* No imports. Standard system fonts only. */
 
 body {
-    font-family: 'VT323', monospace;
-    background-color: #2d2d2d;
-    color: #f3f3f3;
+    background-color: #008080; /* Classic Win95 Teal */
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    color: #000000;
+    font-family: "Trebuchet MS", Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #ff8ff3 25%, #08f7fe 100%);
-}
-
-/* Base link styling */
-a {
-    color: #f3f3f3; /* Color for unclicked links */
-    text-decoration: underline; /* Underline by default */
-    position: relative; /* Needed for the pseudo-element positioning */
-}
-
-/* Link hover styling */
-a:hover {
-    text-decoration: underline; /* Keep underline on hover */
-}
-
-/* Additional line above the link on hover */
-a:hover::before {
-    content: ''; /* Empty content to create a line */
-    display: block;
-    position: absolute;
-    top: -2px; /* Adjust the space between the text and the line */
-    left: 0;
-    width: 100%;
-    height: 1px; /* Thickness of the line */
-    background-color: #f3f3f3; /* Color of the line */
-    z-index: -1; /* Ensure the line is behind the text */
-}
-
-
-.container {
-    background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 1200px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
-    border: 2px solid #08f7fe;
+    line-height: 1.2;
 }
 
+/* The "WordArt" Header */
 h1 {
+    font-family: "Impact", sans-serif;
     text-align: center;
     font-size: 3em;
-    color: #ff8ff3;
+    color: #FFFF00; /* Bright Yellow */
+    background: linear-gradient(to bottom, #0000ff 0%, #000080 100%);
+    border: 4px ridge #ffffff;
+    padding: 10px;
     margin-bottom: 20px;
-    text-shadow: 0px 0px 10px #08f7fe;
+    filter: drop-shadow(5px 5px 0px #000000);
+    text-transform: uppercase;
 }
 
+.container {
+    background-color: #C0C0C0; /* Dull Grey */
+    padding: 15px;
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 3px outset #ffffff; /* Beveled container */
+}
+
+/* Navigation-style links */
+a {
+    color: #0000FF;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #FF0000;
+    background-color: #00FFFF; 
+}
+
+/* The iconic FrontPage Table */
 table {
     width: 100%;
-    border-collapse: collapse;
-    font-size: 1.2em;
+    border-collapse: separate;
+    border-spacing: 2px;
+    background-color: #808080; 
+    border: 2px inset #ffffff;
 }
 
 #tr-header {
-    background-color: #ff00ff;
-    color: #000;
-
+    background-color: #C0C0C0; /* Match container grey */
+    color: #000000; /* Bold Black text as requested */
+    font-weight: bold;
 }
 
-th, td {
-    padding: 12px 15px;
-    border: 1px solid #f3f3f3;
-    text-align: left;
-    word-wrap: break-word;
+th {
+    padding: 8px;
+    border: 2px outset #ffffff;
+    font-size: 1.1em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-tbody tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.1);
+td {
+    padding: 10px;
+    background-color: #C0C0C0; 
+    border: 2px inset #ffffff;
+    font-family: "Courier New", Courier, monospace;
 }
 
-tbody tr:hover {
-    background-color: #ff8ff3;
-    color: #000;
-    transition: background-color 0.3s ease-in-out;
+/* Alternating row colors */
+tbody tr:nth-child(even) td {
+    background-color: #D3D3D3;
 }
 
-/* Ensure the table remains in three columns */
-table, thead, tbody, th, td, tr {
-    display: table-row-group;
+/* Greenish-Blue Hover Effect */
+tbody tr:hover td {
+    background-color: #008080; /* Teal */
+    color: #FFFFFF;
+    cursor: pointer;
 }
 
-td, th {
-    display: table-cell;
+/* Footer Credentials */
+.container::after {
+    content: "Page shamefully vibe-coded with Gemini";
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 0.75em;
+    color: #444;
+    font-style: italic;
 }
 
 @media screen and (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-
-    .container {
-        width: 100%;
-        padding: 10px;
-    }
-
     h1 {
-        font-size: 2em;
+        font-size: 1.8em;
     }
-
-    table {
-        font-size: 1em;
-    }
-
-    th, td {
-        padding: 8px 10px;
+    .container {
+        padding: 5px;
     }
 }
