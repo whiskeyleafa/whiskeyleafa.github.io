@@ -31,6 +31,10 @@ h1 {
     max-width: 1100px;
     margin: 0 auto;
     border: 3px outset #ffffff; /* Beveled container */
+    
+    /* MOBILE FIX: This allows the table to scroll horizontally on small screens */
+    overflow-x: auto;
+    display: block;
 }
 
 /* Navigation-style links */
@@ -48,6 +52,7 @@ a:hover {
 /* The iconic FrontPage Table */
 table {
     width: 100%;
+    min-width: 600px; /* Forces the scrollbar to appear on mobile instead of squishing columns */
     border-collapse: separate;
     border-spacing: 2px;
     background-color: #808080; 
@@ -55,8 +60,8 @@ table {
 }
 
 #tr-header {
-    background-color: #C0C0C0; /* Match container grey */
-    color: #000000; /* Bold Black text as requested */
+    background-color: #C0C0C0; 
+    color: #000000; 
     font-weight: bold;
 }
 
@@ -89,7 +94,7 @@ tbody tr:hover td {
 
 /* Footer Credentials */
 .container::after {
-    content: "Page shamefully vibe-coded with Gemini";
+    content: "Page created with Microsoft FrontPage 98. Best viewed at 800x600.";
     display: block;
     text-align: center;
     margin-top: 15px;
@@ -105,5 +110,17 @@ tbody tr:hover td {
     }
     .container {
         padding: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Optional: Small prompt to scroll */
+    .container::before {
+        content: "Scroll table horizontally ->";
+        display: block;
+        font-size: 0.7em;
+        text-align: right;
+        color: #666;
+        margin-bottom: 5px;
     }
 }
