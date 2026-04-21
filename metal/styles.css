@@ -1,126 +1,119 @@
-/* No imports. Standard system fonts only. */
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 body {
-    background-color: #008080; /* Classic Win95 Teal */
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-    color: #000000;
-    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-family: 'VT323', monospace;
+    background-color: #2d2d2d;
+    color: #f3f3f3;
     margin: 0;
-    padding: 20px;
-    line-height: 1.2;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff8ff3 25%, #08f7fe 100%);
 }
 
-/* The "WordArt" Header */
-h1 {
-    font-family: "Impact", sans-serif;
-    text-align: center;
-    font-size: 3em;
-    color: #FFFF00; /* Bright Yellow */
-    background: linear-gradient(to bottom, #0000ff 0%, #000080 100%);
-    border: 4px ridge #ffffff;
-    padding: 10px;
-    margin-bottom: 20px;
-    filter: drop-shadow(5px 5px 0px #000000);
-    text-transform: uppercase;
+/* Base link styling */
+a {
+    color: #f3f3f3; /* Color for unclicked links */
+    text-decoration: underline; /* Underline by default */
+    position: relative; /* Needed for the pseudo-element positioning */
 }
+
+/* Link hover styling */
+a:hover {
+    text-decoration: underline; /* Keep underline on hover */
+}
+
+/* Additional line above the link on hover */
+a:hover::before {
+    content: ''; /* Empty content to create a line */
+    display: block;
+    position: absolute;
+    top: -2px; /* Adjust the space between the text and the line */
+    left: 0;
+    width: 100%;
+    height: 1px; /* Thickness of the line */
+    background-color: #f3f3f3; /* Color of the line */
+    z-index: -1; /* Ensure the line is behind the text */
+}
+
 
 .container {
-    background-color: #C0C0C0; /* Dull Grey */
-    padding: 15px;
-    width: 95%;
-    max-width: 1100px;
-    margin: 0 auto;
-    border: 3px outset #ffffff; /* Beveled container */
-    
-    /* MOBILE FIX: This allows the table to scroll horizontally on small screens */
-    overflow-x: auto;
-    display: block;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+    border: 2px solid #08f7fe;
 }
 
-/* Navigation-style links */
-a {
-    color: #0000FF;
-    font-weight: bold;
-    text-decoration: underline;
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #ff8ff3;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 10px #08f7fe;
 }
 
-a:hover {
-    color: #FF0000;
-    background-color: #00FFFF; 
-}
-
-/* The iconic FrontPage Table */
 table {
     width: 100%;
-    min-width: 600px; /* Forces the scrollbar to appear on mobile instead of squishing columns */
-    border-collapse: separate;
-    border-spacing: 2px;
-    background-color: #808080; 
-    border: 2px inset #ffffff;
+    border-collapse: collapse;
+    font-size: 1.2em;
 }
 
 #tr-header {
-    background-color: #C0C0C0; 
-    color: #000000; 
-    font-weight: bold;
+    background-color: #ff00ff;
+    color: #000;
+
 }
 
-th {
-    padding: 8px;
-    border: 2px outset #ffffff;
-    font-size: 1.1em;
-    text-align: center;
-    text-transform: uppercase;
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #f3f3f3;
+    text-align: left;
+    word-wrap: break-word;
 }
 
-td {
-    padding: 10px;
-    background-color: #C0C0C0; 
-    border: 2px inset #ffffff;
-    font-family: "Courier New", Courier, monospace;
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Alternating row colors */
-tbody tr:nth-child(even) td {
-    background-color: #D3D3D3;
+tbody tr:hover {
+    background-color: #ff8ff3;
+    color: #000;
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* Greenish-Blue Hover Effect */
-tbody tr:hover td {
-    background-color: #008080; /* Teal */
-    color: #FFFFFF;
-    cursor: pointer;
+/* Ensure the table remains in three columns */
+table, thead, tbody, th, td, tr {
+    display: table-row-group;
 }
 
-/* Footer Credentials */
-.container::after {
-    content: "Page created with Microsoft FrontPage 98. Best viewed at 800x600.";
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    padding: 10px;
-    font-size: 0.75em;
-    color: #444;
-    font-style: italic;
+td, th {
+    display: table-cell;
 }
 
 @media screen and (max-width: 768px) {
-    h1 {
-        font-size: 1.8em;
+    body {
+        padding: 10px;
     }
+
     .container {
-        padding: 5px;
         width: 100%;
-        box-sizing: border-box;
+        padding: 10px;
     }
-    
-    /* Optional: Small prompt to scroll */
-    .container::before {
-        content: "Scroll table horizontally ->";
-        display: block;
-        font-size: 0.7em;
-        text-align: right;
-        color: #666;
-        margin-bottom: 5px;
+
+    h1 {
+        font-size: 2em;
+    }
+
+    table {
+        font-size: 1em;
+    }
+
+    th, td {
+        padding: 8px 10px;
     }
 }
