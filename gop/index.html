@@ -1,0 +1,28 @@
+<style>
+  .doc-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    /* This creates a 4:3 aspect ratio. Adjust to 141% for A4 proportions */
+    padding-top: 133%; 
+  }
+
+  .responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+
+<div class="doc-container">
+  <iframe 
+    src="https://docs.google.com/document/d/10ANjLrwcjDprqI5b3j7TtWBpysEP3zbtzJ-ujPSO8Ts/edit?usp=drivesdk" 
+    class="responsive-iframe" 
+    allowfullscreen>
+  </iframe>
+</div>
