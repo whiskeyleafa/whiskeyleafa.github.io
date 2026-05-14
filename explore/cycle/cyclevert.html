@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Cams</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: sans-serif;
+            overflow: hidden; /* Prevents scrollbars on the main body */
+        }
+
+        #viewer {
+            flex: 1;
+            width: 100%;
+            border: none;
+            /* This ensures the iframe content fills the available space */
+            display: block; 
+        }
+
+        /* If the iframe content itself is a grid of videos, 
+           the following media query ensures the iframe stays usable 
+        */
+        @media (orientation: portrait) {
+            #viewer {
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 0;
+            background: transparent;
+            pointer-events: none;
+            z-index: 10; /* Ensure buttons stay on top */
+        }
+
+        .controls button {
+            font-size: 28px;
+            background: rgba(0, 0, 0, 0.3); /* Added slight bg for visibility on busy feeds */
+            border: none;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            padding: 14px;
+            border-radius: 50%;
+            opacity: 0.5;
+            pointer-events: auto;
+            transition: opacity 0.2s, background 0.2s;
+        }
+
+        .controls button:hover {
+            opacity: 0.8;
+        }
+
+        .controls button:active {
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body>
+
+<iframe id="viewer" src="about:blank"></iframe>
+
+<div class="controls">
+    <button id="prevBtn">⬅️</button>
+    <button id="nextBtn">➡️</button>
+</div>
+
+<script>
+const pages = [
+    "../grid",
+    "../wolves",
+    "../wolves2",
+    "../backyard",
+    "../eagles",
+    "../puppies",
+    "../bears",
+    "../007",
+    "../008",
+    "../009"
+];
+
+let current = 0;
+const viewer = document.getElementById("viewer");
+
+// Initial Load
+viewer.src = pages[current];
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+    current = (current + 1) % pages.length;
+    viewer.src = pages[current];
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+    current = (current - 1 + pages.length) % pages.length;
+    viewer.src = pages[current];
+});
+</script>
+
+</body>
+</html>
