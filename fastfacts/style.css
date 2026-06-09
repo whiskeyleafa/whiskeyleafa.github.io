@@ -1,14 +1,4 @@
-/* ==========================================================================
-   Wildlife-Themed Linktree Stylesheet (Teal & Gold Variant)
-   ========================================================================== */
 
-/* Design Palette:
-   - Base Background Depth: #0d2226 (Complementary Dark Teal Charcoal)
-   - Main Color:            #1e5e67 (Deep Wild Teal)
-   - Mid-Tone Accent:       #3a7d87 (Soft Slate Teal)
-   - Highlight Accent:      #e2c952 (Golden Wildlife Ochre)
-   - Light Contrast Text:   #f4f8f9 (Soft Ice/Parchment)
-*/
 
 * {
     box-sizing: border-box;
@@ -95,6 +85,15 @@ body::before {
 
 .podcast-title {
     font-size: 2.3rem;
+    font-weight: 900;
+    letter-spacing: -0.7px;
+    margin-bottom: 0px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.podcast-subtitle {
+    font-size: 1.8rem;
     font-weight: 900;
     letter-spacing: -0.7px;
     margin-bottom: 12px;
